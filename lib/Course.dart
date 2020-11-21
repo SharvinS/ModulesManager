@@ -17,8 +17,8 @@ class _CourseRoute extends State<CourseRoute> {
     return MaterialApp(
         home: Scaffold(   //create an empty whole page which is the main layout
             appBar: AppBar(   //create an app bar for the page
-              backgroundColor: Colors.deepOrangeAccent[400],    //color of the app bar
-                title: Text("Courses", //text displayed on the app bar
+              backgroundColor: Colors.blue[800],    //color of the app bar
+                title: Text("MODULES MANAGER", //text displayed on the app bar
               ),
             ),
             body: new Material(   //the body of the homepage
@@ -123,7 +123,7 @@ class _CourseRoute extends State<CourseRoute> {
                                 child: new Material(    //allows creation and  customization of a widget
                                   borderRadius: new BorderRadius.circular(25.0),  //curve edges of the widget
                                   elevation: 10.0,    //elevation value of the widget
-                                  color: Colors.deepOrangeAccent[400],    //color of the widget
+                                  color: Colors.blue[800],    //color of the widget
                                   child: MaterialButton(    //create a button within the material
                                     minWidth: 80.0,   //width of the button
                                     height: 20.0,   //height of the button

@@ -18,17 +18,17 @@ class GPAState extends State<GPA> {
     return new Scaffold(
         resizeToAvoidBottomPadding: false,
         appBar: new AppBar(
-            title: new Text("GPA Calculator"),
-            backgroundColor: Colors.deepOrangeAccent[400]),
+            title: new Text("MODULES MANAGER"),
+            backgroundColor: Colors.blue[800]),
         body: new Material(
             child: new Container(
           color: Colors.black26,
           padding: EdgeInsets.all(30.0),
-          child: new Column(
+              child: new Column(
               //column to insert item
               mainAxisAlignment:
                   MainAxisAlignment.center, //alignment of the column
-              crossAxisAlignment: CrossAxisAlignment.center,
+                  // crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 //holds widgets for the previous widgets
                 new Container(
@@ -36,8 +36,19 @@ class GPAState extends State<GPA> {
                   width: 300,
                   child: new ListView(
                     children: <Widget>[
+
                       new Container(
-                        height: 100.0,
+                        child: new Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            new Text("Semester Details",
+                            textAlign: TextAlign.center,
+                            style: TextStyle (fontSize: 20),)
+                          ],
+                        )
+                      ),
+                      new Container(
+                        height: 80.0,
                       ),
                       new Container(
                         height: 50.0,
@@ -87,7 +98,7 @@ class GPAState extends State<GPA> {
                           child: new Material(
                               elevation: 10.0,
                               borderRadius: new BorderRadius.circular(50.0),
-                              color: Colors.deepOrangeAccent[400],
+                              color: Colors.blue[800],
                               child: MaterialButton(
                                   minWidth: 80.0,
                                   height: 20.0,
@@ -117,6 +128,8 @@ class GPAState extends State<GPA> {
                   ),
                 ),
 
+                new Padding(padding: EdgeInsets.only(top: 100)),
+
                 new Container(
                   //container to create a button
                   padding: EdgeInsets.only(
@@ -136,8 +149,7 @@ class GPAState extends State<GPA> {
                           borderRadius: new BorderRadius.circular(
                               25.0), //curve edges of the widget
                           elevation: 10.0, //elevation value of the widget
-                          color: Colors
-                              .deepOrangeAccent[400], //color of the widget
+                          color: Colors.blue[800], //color of the widget
                           child: MaterialButton(
                             //create a button within the material
                             minWidth: 80.0, //width of the button
@@ -181,7 +193,7 @@ class GPAState extends State<GPA> {
           actions: <Widget>[
             new RaisedButton(
               elevation: 5.0,
-              color: Colors.deepOrangeAccent[400],
+              color: Colors.blue[800],
               child: new Text(
                 "Go Back",
                 style: TextStyle(color: Colors.black),

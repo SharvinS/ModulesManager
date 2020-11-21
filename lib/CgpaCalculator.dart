@@ -41,9 +41,9 @@ class _CgpaCalculatorRoute extends State<CgpaCalculatorRoute> {
             appBar: AppBar(
               //create an app bar for the page
               backgroundColor:
-                  Colors.deepOrangeAccent[400], //color of the app bar
+                  Colors.blue[800], //color of the app bar
               title: Text(
-                "CGPA", //text displayed on the app bar
+                "MODULES MANAGER", //text displayed on the app bar
               ),
             ),
             body: new Material(

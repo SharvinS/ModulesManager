@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
     return new Scaffold( //create an empty whole page which is the main layout
       appBar: AppBar(     //create an app bar for the homepage
           backgroundColor: Colors.blue[800],    //color of the app bar
-          title: Text('CGPA CALCULATOR')    //text displayed on the app bar
+          title: Text('MODULES MANAGER')    //text displayed on the app bar
       ),
       body: new Material(   //the body of the homepage
         child: new Container( //contains all the content of the page body
@@ -27,20 +27,20 @@ class HomeScreen extends StatelessWidget {
           color: Colors.grey[900],    //background color of the homepage
           child: new Center(    //the position of the container set to center
             child: new Column(children: [   //a column to insert item
-              new Padding(padding: EdgeInsets.only(top: 20.0)),   //the distance between the app bar and column
+              new Padding(padding: EdgeInsets.only(top: 40.0)),   //the distance between the app bar and column
               new Text(   //insertion of text in the column
-                'WELCOME',
+                'KEEP TRACK OF YOUR GRADES \n           ALL AT ONE PLACE',
                 style: new TextStyle(   //styling of the text
                     color: Colors.white,    //color of the text
-                    fontSize: 25.0    //size of the text
+                    fontSize: 18.0    //size of the text
                 ),
               ),
-              new Padding(padding: EdgeInsets.only(top: 30.0)),   //spacing above the image
+              new Padding(padding: EdgeInsets.only(top: 50.0)),   //spacing above the image
               new Container(  //Container to insert an image.
-                child: Image.asset('assets/result.png', width: 120.0, height: 120.0,    //insertion of image file
+                child: Image.asset('assets/result.png', width: 150.0, height: 150.0,    //insertion of image file
                 ),
               ),
-              new Padding(padding: EdgeInsets.only(bottom: 50.0)), //spacing below the image
+              new Padding(padding: EdgeInsets.only(bottom: 140.0)), //spacing below the image
 
               //start of first button
               new Container(
@@ -51,7 +51,7 @@ class HomeScreen extends StatelessWidget {
                     color: Colors.blue[800],    //color of the widget
                     child: MaterialButton(    //create a button within the material
                         minWidth: 50.0,
-                        height: 50.0,//width of the button
+                        height: 55.0,//width of the button
                         padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),   // distance from text and border
 
                         //action upon clicking the button which navigates to the assigned page
@@ -63,7 +63,7 @@ class HomeScreen extends StatelessWidget {
                             ),
                           );
                         },
-                        child:  Text('        GPA\nCALCULATOR',)   //text displayed on the button
+                        child:  Text('    INSERT/UPDATE SEMESTER MODULES    ',)   //text displayed on the button
                     )
                 ),
               ),
@@ -77,7 +77,7 @@ class HomeScreen extends StatelessWidget {
                     color: Colors.blue[800],
                     child: MaterialButton(
                         minWidth: 50.0,
-                        height: 50.0,
+                        height: 55.0,
                         padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                         onPressed: () {
                           Navigator.push(
@@ -86,8 +86,7 @@ class HomeScreen extends StatelessWidget {
                                 builder: (context) => CgpaCalculatorRoute()),
                           );
                         },
-                        child:  Text('        CGPA\nCALCULATOR',
-                        )
+                        child:  Text('                         SEMESTER LIST                         ',)
                     )
                 ),
               ),
@@ -101,7 +100,7 @@ class HomeScreen extends StatelessWidget {
                     color: Colors.blue[800],
                     child: MaterialButton(
                         minWidth: 117.0,
-                        height: 50.0,
+                        height: 55.0,
                         padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                         onPressed: () {
                           Navigator.push(
@@ -110,7 +109,7 @@ class HomeScreen extends StatelessWidget {
                                 builder: (context) => CourseRoute()),
                           );
                         },
-                        child:  Text('COURSE\n    LIST',)
+                        child:  Text('                          MODULES LIST                          ',)
                     )
                 ),
               ),

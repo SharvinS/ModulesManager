@@ -1,7 +1,8 @@
 # cgpa_calculator_assignment
 
-A new Flutter application that allows user to track their GPA and CGPA based on their semesters.
+A Flutter application that allows users to keep track of their modules according to semesters including their GPA and CGPA.
 The GPA and CGPA will automatically be calculated after users insert thier credit hours and grades.
+The data is being stored locally using SQLite
 
 ## Getting Started
 

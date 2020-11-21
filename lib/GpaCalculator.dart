@@ -174,29 +174,32 @@ class GPAcalcstate extends State<GPAcalc> {
 
     return new Scaffold(
         appBar: new AppBar(
-          title: new Text("GPA Calculator"),
-          backgroundColor: Colors.deepOrangeAccent[400],
+          title: new Text("MODULES MANAGER"),
+          backgroundColor: Colors.blue[800],
         ),
         body: Material(
             child: new Container(
-          color: Colors.black26,
-          padding: EdgeInsets.all(30.0),
-          child: new ListView(
-            children: textFields,
-          ),
-        )),
+              color: Colors.black26,
+              padding: EdgeInsets.all(30.0),
+              child: new ListView(
+                children: textFields,
+              ),
+            )
+        ),
         floatingActionButton: new Material(
           borderRadius: BorderRadius.circular(50.0),
           elevation: 10.0,
           child: new MaterialButton(
-            color: Colors.deepOrangeAccent[400],
+            color: Colors.blue[800],
             height: 50.0,
             minWidth: 80.0,
             padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
             onPressed: () async {
               semString = (widget.sem).toString();
-              await CoursedbDatabaseProvider.db.deleteGPAdbWithSemester(semString);
-              await CoursedbDatabaseProvider.db.deleteCoursedbWithSemester(semString);
+              await CoursedbDatabaseProvider.db
+                  .deleteGPAdbWithSemester(semString);
+              await CoursedbDatabaseProvider.db
+                  .deleteCoursedbWithSemester(semString);
 
               for (int i = 0; i < widget.n; i++) {
                 if (_creditHour[i] == null) {
@@ -226,7 +229,6 @@ class GPAcalcstate extends State<GPAcalc> {
                     grade: _grade[i]);
 
                 await CoursedbDatabaseProvider.db.addCoursedbToDatabase(rnd);
-
               }
 
               if (safeToNavigate == true) {
@@ -279,7 +281,7 @@ class GPAcalcstate extends State<GPAcalc> {
           actions: <Widget>[
             new RaisedButton(
               elevation: 5.0,
-              color: Colors.deepOrangeAccent[400],
+              color: Colors.blue[800],
               child: new Text(
                 "Go Back",
                 style: TextStyle(color: Colors.black),
@@ -311,7 +313,7 @@ class GPAcalcstate extends State<GPAcalc> {
           actions: <Widget>[
             new RaisedButton(
               elevation: 5.0,
-              color: Colors.deepOrangeAccent[400],
+              color: Colors.blue[800],
               child: new Text(
                 "Go Back",
                 style: TextStyle(color: Colors.black),
