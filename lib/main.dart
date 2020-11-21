@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cgpa_calculator_assignment/SemSubj.dart';
-import 'CgpaCalculator.dart';
-import 'Course.dart';
+import 'SemesterList.dart';
+import 'ModuleList.dart';
 
 void main() => runApp(MyApp());
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:cgpa_calculator_assignment/GpaCalculator.dart';
+import 'package:cgpa_calculator_assignment/InsertSemester.dart';
 
 class GPA extends StatefulWidget {
   @override

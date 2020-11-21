@@ -42,56 +42,18 @@ class GPAcalcstate extends State<GPAcalc> {
     var textFields = <Widget>[];
     bool safeToNavigate = true;
 
-    textFields.add(
-      new Row(children: [
-        new Padding(
-          padding: new EdgeInsets.only(left: 20.0),
-        ),
-        new Column(children: [
-          new Text(
-            "     Code",
-            overflow: TextOverflow.ellipsis,
-            style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 17.0),
-          ),
-        ]),
-        new Padding(
-          padding: new EdgeInsets.only(left: 35.0),
-        ),
-        new Column(children: [
-          new Text(
-            "  Grade",
-            overflow: TextOverflow.ellipsis,
-            style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 17.0),
-          ),
-        ]),
-        new Padding(
-          padding: new EdgeInsets.only(left: 45.0),
-        ),
-        new Column(
-          children: [
-            new Text(
-              "  Credits",
-              overflow: TextOverflow.ellipsis,
-              style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 17.0),
-            ),
-          ],
-        ),
-        new Padding(
-          padding: new EdgeInsets.only(bottom: 25.0),
-        ),
-      ]),
-    );
+
     list.forEach((i) {
       textFields.add(
         new Column(
           children: [
             new Row(children: [
               new Padding(
-                padding: new EdgeInsets.all(15.0),
+                padding: new EdgeInsets.only(left: 5.0),
               ),
               new Container(
                 height: 50.0,
-                width: 50.0,
+                width: 105.0,
                 child: TextField(
                   textAlign: TextAlign.center,
                   autofocus: true,
@@ -99,7 +61,7 @@ class GPAcalcstate extends State<GPAcalc> {
                     hintText: "Code ${i + 1}",
                   ),
                   inputFormatters: [
-                    LengthLimitingTextInputFormatter(6),
+                    LengthLimitingTextInputFormatter(10),
                   ],
                   controller: _CodeCp[i],
                   onChanged: (s) {
@@ -111,7 +73,7 @@ class GPAcalcstate extends State<GPAcalc> {
                 ),
               ),
               new Padding(
-                padding: new EdgeInsets.all(15.0),
+                padding: new EdgeInsets.only(left: 45.0),
               ),
               new DropdownButton<String>(
                 style:
@@ -138,7 +100,7 @@ class GPAcalcstate extends State<GPAcalc> {
                 },
               ),
               new Padding(
-                padding: new EdgeInsets.all(15.0),
+                padding: new EdgeInsets.only(left: 55.0),
               ),
               new DropdownButton<String>(
                 style:
@@ -173,6 +135,7 @@ class GPAcalcstate extends State<GPAcalc> {
     double res = 0.0;
 
     return new Scaffold(
+      resizeToAvoidBottomPadding: false,
         appBar: new AppBar(
           title: new Text("MODULES MANAGER"),
           leading: new Container(),
@@ -182,15 +145,118 @@ class GPAcalcstate extends State<GPAcalc> {
         body: Material(
             child: new Container(
               color: Colors.black26,
-              padding: EdgeInsets.all(30.0),
+              padding: EdgeInsets.only(top:30.0, left: 30.0, right: 30.0),
               child: new Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   new Container(
-                    height: 500,
+                    child: Text("  CODE                     GRADE                  CREDIT",
+                      style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),),
+                  ),
+
+                  new Padding(padding: EdgeInsets.only(bottom: 20.0)),
+
+                  new Container(
+                    height: 480,
                     width: 450,
                     child: new ListView(
                       children: textFields,
+                    ),
+                  ),
+                  
+                  new Padding(padding: EdgeInsets.only(bottom: 30.0)),
+
+                  new Material(
+                    borderRadius: BorderRadius.circular(50.0),
+                    elevation: 10.0,
+                    child: new MaterialButton(
+                      color: Colors.blue[800],
+                      height: 50.0,
+                      minWidth: 80.0,
+                      padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                      onPressed: () async {
+                        semString = (widget.sem).toString();
+                        await CoursedbDatabaseProvider.db
+                            .deleteGPAdbWithSemester(semString);
+                        await CoursedbDatabaseProvider.db
+                            .deleteCoursedbWithSemester(semString);
+
+                        for (int i = 0; i < widget.n; i++) {
+                          if (_creditHour[i] == null) {
+                            safeToNavigate = false;
+                            continue;
+                          }
+                          if (_grade[i] == null) {
+                            safeToNavigate = false;
+                            continue;
+                          }
+                          if (_subjectCode[i] == null) {
+                            safeToNavigate = false;
+                            continue;
+                          }
+
+                          double r = double.parse(_creditHour[i]);
+                          double gp = calculate(_grade[i]);
+                          double cp = r;
+                          double gxc = gp * cp;
+                          sogxc += gxc;
+                          soc += cp;
+
+                          Coursedb rnd = Coursedb(
+                              semester: semString,
+                              code: _subjectCode[i],
+                              credit: _creditHour[i],
+                              grade: _grade[i]);
+
+                          await CoursedbDatabaseProvider.db.addCoursedbToDatabase(rnd);
+                        }
+
+                        if (safeToNavigate == true) {
+                          res = sogxc / soc;
+
+                          resgpa = (res).toStringAsFixed(2);
+                          reschr = (soc).toString();
+
+                          GPAdb rna =
+                          GPAdb(semester: semString, gpa: resgpa, chr: reschr);
+
+                          await CoursedbDatabaseProvider.db.addGPAdbToDatabase(rna);
+                          alert2();
+                        } else {
+                          alert();
+                        }
+                        setState(() {});
+                      },
+                      child: new Text('CALCULATE'),
+                    ),
+                  ),
+                  new Container(    //container to create a button
+                    padding: EdgeInsets.only(top: 5.0),    //spacing above the back button
+                    child: new Row(   //create row to allow alignment of button
+                      mainAxisAlignment: MainAxisAlignment.center,   //alignment of the row
+                      children:[    //holds widgets for the previous widgets
+                        new Container(    //holds the back button
+                          padding: new EdgeInsets.all(10.0),    //distance between container and border
+                          child: new Material(    //allows creation and  customization of a widget\
+                            elevation: 10.0,    //elevation value of the widget
+                            color: Colors.blue[800],    //color of the widget
+                            child: MaterialButton(    //create a button within the material
+                              minWidth: 80.0,   //width of the button
+                              height: 20.0,   //height of the button
+                              padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),   // distance from text and border
+                              elevation: 10.0,
+
+                              //action upon clicking the button which navigates to the homepage
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text("BACK            ",   //text displayed on the button
+                                textAlign: TextAlign.center,    //alignment of the text
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   )
                 ],
@@ -198,70 +264,7 @@ class GPAcalcstate extends State<GPAcalc> {
 
             )
         ),
-        floatingActionButton: new Material(
-          borderRadius: BorderRadius.circular(50.0),
-          elevation: 10.0,
-          child: new MaterialButton(
-            color: Colors.blue[800],
-            height: 50.0,
-            minWidth: 80.0,
-            padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-            onPressed: () async {
-              semString = (widget.sem).toString();
-              await CoursedbDatabaseProvider.db
-                  .deleteGPAdbWithSemester(semString);
-              await CoursedbDatabaseProvider.db
-                  .deleteCoursedbWithSemester(semString);
 
-              for (int i = 0; i < widget.n; i++) {
-                if (_creditHour[i] == null) {
-                  safeToNavigate = false;
-                  continue;
-                }
-                if (_grade[i] == null) {
-                  safeToNavigate = false;
-                  continue;
-                }
-                if (_subjectCode[i] == null) {
-                  safeToNavigate = false;
-                  continue;
-                }
-
-                double r = double.parse(_creditHour[i]);
-                double gp = calculate(_grade[i]);
-                double cp = r;
-                double gxc = gp * cp;
-                sogxc += gxc;
-                soc += cp;
-
-                Coursedb rnd = Coursedb(
-                    semester: semString,
-                    code: _subjectCode[i],
-                    credit: _creditHour[i],
-                    grade: _grade[i]);
-
-                await CoursedbDatabaseProvider.db.addCoursedbToDatabase(rnd);
-              }
-
-              if (safeToNavigate == true) {
-                res = sogxc / soc;
-
-                resgpa = (res).toStringAsFixed(2);
-                reschr = (soc).toString();
-
-                GPAdb rna =
-                    GPAdb(semester: semString, gpa: resgpa, chr: reschr);
-
-                await CoursedbDatabaseProvider.db.addGPAdbToDatabase(rna);
-                alert2();
-              } else {
-                alert();
-              }
-              setState(() {});
-            },
-            child: new Text('Calculate'),
-          ),
-        ),
     );
   }
 
