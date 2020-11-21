@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cgpa_calculator_assignment/SemSubj.dart';
 import 'CgpaCalculator.dart';
@@ -19,7 +20,9 @@ class HomeScreen extends StatelessWidget {
     return new Scaffold( //create an empty whole page which is the main layout
       appBar: AppBar(     //create an app bar for the homepage
           backgroundColor: Colors.blue[800],    //color of the app bar
-          title: Text('MODULES MANAGER')    //text displayed on the app bar
+          title: Text('MODULES MANAGER'),    //text displayed on the app bar
+        leading: new Container(),
+        centerTitle: true,
       ),
       body: new Material(   //the body of the homepage
         child: new Container( //contains all the content of the page body

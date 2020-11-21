@@ -19,6 +19,8 @@ class GPAState extends State<GPA> {
         resizeToAvoidBottomPadding: false,
         appBar: new AppBar(
             title: new Text("MODULES MANAGER"),
+            leading: new Container(),
+            centerTitle: true,
             backgroundColor: Colors.blue[800]),
         body: new Material(
             child: new Container(

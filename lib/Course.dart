@@ -18,8 +18,9 @@ class _CourseRoute extends State<CourseRoute> {
         home: Scaffold(   //create an empty whole page which is the main layout
             appBar: AppBar(   //create an app bar for the page
               backgroundColor: Colors.blue[800],    //color of the app bar
-                title: Text("MODULES MANAGER", //text displayed on the app bar
-              ),
+                title: Text("MODULES MANAGER"), //text displayed on the app bar
+              leading: new Container(),
+              centerTitle: true,
             ),
             body: new Material(   //the body of the homepage
               child: new Container(   //contains all the content of the page body

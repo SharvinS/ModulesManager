@@ -1,4 +1,4 @@
-# cgpa_calculator_assignment
+# Modules Manager
 
 A Flutter application that allows users to keep track of their modules according to semesters including their GPA and CGPA.
 The GPA and CGPA will automatically be calculated after users insert thier credit hours and grades.

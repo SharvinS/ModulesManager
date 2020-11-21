@@ -175,15 +175,27 @@ class GPAcalcstate extends State<GPAcalc> {
     return new Scaffold(
         appBar: new AppBar(
           title: new Text("MODULES MANAGER"),
+          leading: new Container(),
+          centerTitle: true,
           backgroundColor: Colors.blue[800],
         ),
         body: Material(
             child: new Container(
               color: Colors.black26,
               padding: EdgeInsets.all(30.0),
-              child: new ListView(
-                children: textFields,
+              child: new Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  new Container(
+                    height: 500,
+                    width: 450,
+                    child: new ListView(
+                      children: textFields,
+                    ),
+                  )
+                ],
               ),
+
             )
         ),
         floatingActionButton: new Material(
@@ -249,7 +261,8 @@ class GPAcalcstate extends State<GPAcalc> {
             },
             child: new Text('Calculate'),
           ),
-        ));
+        ),
+    );
   }
 
   double calculate(var a) {
