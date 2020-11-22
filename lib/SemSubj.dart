@@ -94,7 +94,7 @@ class GPAState extends State<GPA> {
                           },
                         ),
                       ),
-                      new Padding(padding: EdgeInsets.only(bottom: 20.0)),
+                      new Padding(padding: EdgeInsets.only(bottom: 30.0)),
                       new Container(
                           padding: new EdgeInsets.all(10.0),
                           child: new Material(
@@ -124,8 +124,11 @@ class GPAState extends State<GPA> {
                                     }
                                   },
                                   child: Text(
-                                    'Continue',
-                                  ))))
+                                    'CONTINUE',
+                                  )
+                              )
+                          )
+                      )
                     ],
                   ),
                 ),
@@ -139,7 +142,7 @@ class GPAState extends State<GPA> {
                   child: new Row(
                     //create row to allow alignment of button
                     mainAxisAlignment:
-                        MainAxisAlignment.start, //alignment of the row
+                        MainAxisAlignment.center, //alignment of the row
                     children: [
                       //holds widgets for the previous widgets
                       new Container(
@@ -148,8 +151,6 @@ class GPAState extends State<GPA> {
                             10.0), //distance between container and border
                         child: new Material(
                           //allows creation and  customization of a widget
-                          borderRadius: new BorderRadius.circular(
-                              25.0), //curve edges of the widget
                           elevation: 10.0, //elevation value of the widget
                           color: Colors.blue[800], //color of the widget
                           child: MaterialButton(
@@ -164,7 +165,7 @@ class GPAState extends State<GPA> {
                               Navigator.pop(context);
                             },
                             child: Text(
-                              "Back", //text displayed on the button
+                              "BACK", //text displayed on the button
                               textAlign:
                                   TextAlign.center, //alignment of the text
                             ),

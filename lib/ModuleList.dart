@@ -24,20 +24,22 @@ class _CourseRoute extends State<CourseRoute> {
             ),
             body: new Material(   //the body of the homepage
               child: new Container(   //contains all the content of the page body
-                  padding: new EdgeInsets.only(top: 30.0, left: 30.0, right: 30.0),   //the spacing between border and container
+                  padding: new EdgeInsets.only(top: 30.0, left: 28.0, right: 28.0),   //the spacing between border and container
                   color: Colors.black26,   //background color of the page
                   child: new Column(    //column to insert item
                       mainAxisAlignment: MainAxisAlignment.center,    //alignment of the column
                       children:[    //holds widgets for the previous widgets
                         
                         new Container(
-                          child: Text("Semester       Code           Credit       Grade",
-                          style: TextStyle(fontSize: 18.0),),
+                          child: Text("SEMESTER            CODE              CREDIT        GRADE",
+                          style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),),
                         ),
 
+                        new Padding(padding: EdgeInsets.only(bottom: 30.0)),
+
                         new Container(
-                            width: 300.0,
-                            height: 450.0,
+                            width: 500.0,
+                            height: 520.0,
                             child: Material(
                               color: Colors.white70,
                               child: FutureBuilder<List<Coursedb>>(
@@ -61,9 +63,12 @@ class _CourseRoute extends State<CourseRoute> {
                                               },
                                               child: Row(
                                                 children: <Widget>[
+
+                                                  new Padding(padding: EdgeInsets.only(left: 10.0)),
+
                                                   new Container(
                                                     height:50.0,
-                                                    width: 74.0,
+                                                    width: 70.0,
                                                     child: ListTile(
                                                       title: Text(item.semester,
                                                           textAlign: TextAlign.center,
@@ -71,9 +76,12 @@ class _CourseRoute extends State<CourseRoute> {
                                                               fontSize: 16)),
                                                     ),
                                                   ),
+
+                                                  new Padding(padding: EdgeInsets.only(left: 0.0)),
+
                                                   new Container(
                                                     height:50.0,
-                                                    width: 80.0,
+                                                    width: 150.0,
                                                     child: ListTile(
                                                       title: Text(item.code,
                                                           textAlign: TextAlign.center,
@@ -81,9 +89,12 @@ class _CourseRoute extends State<CourseRoute> {
                                                               fontSize: 16)),
                                                     ),
                                                   ),
+
+                                                  new Padding(padding: EdgeInsets.only(left: 0.0)),
+
                                                   new Container(
                                                     height:50.0,
-                                                    width: 74.0,
+                                                    width: 52.0,
                                                     child: ListTile(
                                                       title: Text(item.credit,
                                                           textAlign: TextAlign.center,
@@ -91,9 +102,12 @@ class _CourseRoute extends State<CourseRoute> {
                                                               fontSize: 16)),
                                                     ),
                                                   ),
+
+                                                  new Padding(padding: EdgeInsets.only(left: 35.0)),
+
                                                   new Container(
                                                     height:50.0,
-                                                    width: 72.0,
+                                                    width: 52.0,
                                                     child: ListTile(
                                                       title: Text(item.grade,
                                                           textAlign: TextAlign.center,
@@ -117,12 +131,11 @@ class _CourseRoute extends State<CourseRoute> {
                         new Container(    //container to create a button
                           padding: EdgeInsets.only(top: 20.0),    //spacing above the back button
                           child: new Row(   //create row to allow alignment of button
-                            mainAxisAlignment: MainAxisAlignment.start,   //alignment of the row
+                            mainAxisAlignment: MainAxisAlignment.center,   //alignment of the row
                             children:[    //holds widgets for the previous widgets
                               new Container(    //holds the back button
                                 padding: new EdgeInsets.all(10.0),    //distance between container and border
                                 child: new Material(    //allows creation and  customization of a widget
-                                  borderRadius: new BorderRadius.circular(25.0),  //curve edges of the widget
                                   elevation: 10.0,    //elevation value of the widget
                                   color: Colors.blue[800],    //color of the widget
                                   child: MaterialButton(    //create a button within the material
@@ -134,7 +147,7 @@ class _CourseRoute extends State<CourseRoute> {
                                     onPressed: (){
                                       Navigator.pop(context);
                                     },
-                                    child: Text("Back",   //text displayed on the button
+                                    child: Text("BACK",   //text displayed on the button
                                       textAlign: TextAlign.center,    //alignment of the text
                                     ),
                                   ),
