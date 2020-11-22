@@ -54,8 +54,8 @@ class _CgpaCalculatorRoute extends State<CgpaCalculatorRoute> {
                   //contains all the content of the page body
                   padding: new EdgeInsets.only(
                       top: 30.0,
-                      left: 30.0,
-                      right: 30.0), //the spacing between border and container
+                      left: 28.0,
+                      right: 28.0), //the spacing between border and container
                   color: Colors.black26, //background color of the page
                   child: new Column(
                       //column to insert item
@@ -66,14 +66,16 @@ class _CgpaCalculatorRoute extends State<CgpaCalculatorRoute> {
 
                         new Container(
                           child: Text(
-                            "Semester                 GPA                 CGPA",
-                            style: TextStyle(fontSize: 18.0),
+                            "   SEMESTER                    GPA                       CGPA        ",
+                            style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
                           ),
                         ),
 
+                        new Padding(padding: EdgeInsets.only(bottom: 30.0)),
+
                         new Container(
-                            width: 300.0,
-                            height: 450.0,
+                            width: 500.0,
+                            height: 520.0,
                             child: Material(
                               elevation: 8.0,
                               color: Colors.white70,
@@ -108,7 +110,7 @@ class _CgpaCalculatorRoute extends State<CgpaCalculatorRoute> {
                                                 children: <Widget>[
                                                   new Container(
                                                     height: 50.0,
-                                                    width: 100.0,
+                                                    width: 120.0,
                                                     child: ListTile(
                                                       title: Text(item.semester,
                                                           textAlign:
@@ -117,9 +119,12 @@ class _CgpaCalculatorRoute extends State<CgpaCalculatorRoute> {
                                                               fontSize: 16)),
                                                     ),
                                                   ),
+
+                                                  new Padding(padding: EdgeInsets.only(left: 15.0)),
+
                                                   new Container(
                                                     height: 50.0,
-                                                    width: 100.0,
+                                                    width: 120.0,
                                                     child: ListTile(
                                                       title: Text(gpanString,
                                                           textAlign:
@@ -128,9 +133,12 @@ class _CgpaCalculatorRoute extends State<CgpaCalculatorRoute> {
                                                               fontSize: 16)),
                                                     ),
                                                   ),
+
+                                                  new Padding(padding: EdgeInsets.only(left: 1.0)),
+
                                                   new Container(
                                                     height: 50.0,
-                                                    width: 100.0,
+                                                    width: 120.0,
                                                     child: ListTile(
                                                       title: Text(cgpaString,
                                                           textAlign:
@@ -159,7 +167,7 @@ class _CgpaCalculatorRoute extends State<CgpaCalculatorRoute> {
                           child: new Row(
                             //create row to allow alignment of button
                             mainAxisAlignment:
-                                MainAxisAlignment.start, //alignment of the row
+                                MainAxisAlignment.center, //alignment of the row
                             children: [
                               //holds widgets for the previous widgets
                               new Container(
@@ -168,12 +176,9 @@ class _CgpaCalculatorRoute extends State<CgpaCalculatorRoute> {
                                     10.0), //distance between container and border
                                 child: new Material(
                                   //allows creation and  customization of a widget
-                                  borderRadius: new BorderRadius.circular(
-                                      25.0), //curve edges of the widget
                                   elevation:
                                       10.0, //elevation value of the widget
-                                  color: Colors.deepOrangeAccent[
-                                      400], //color of the widget
+                                  color: Colors.blue[800],//color of the widget
                                   child: MaterialButton(
                                     //create a button within the material
                                     minWidth: 80.0, //width of the button
@@ -189,7 +194,7 @@ class _CgpaCalculatorRoute extends State<CgpaCalculatorRoute> {
                                       Navigator.pop(context);
                                     },
                                     child: Text(
-                                      "Back", //text displayed on the button
+                                      "BACK", //text displayed on the button
                                       textAlign: TextAlign
                                           .center, //alignment of the text
                                     ),

@@ -1,3 +1,4 @@
+import 'package:cgpa_calculator_assignment/main.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:cgpa_calculator_assignment/coursedb.dart';
@@ -290,7 +291,7 @@ class GPAcalcstate extends State<GPAcalc> {
           content: new SingleChildScrollView(
             child: new ListBody(
               children: <Widget>[
-                new Text('Input all the data'),
+                new Text('Insert all the data'),
               ],
             ),
           ),
@@ -303,8 +304,8 @@ class GPAcalcstate extends State<GPAcalc> {
                 style: TextStyle(color: Colors.black),
               ),
               onPressed: () {
-                Navigator.of(context).pop();
-              },
+                Navigator.pop(context);
+              }
             )
           ],
         );
@@ -335,7 +336,12 @@ class GPAcalcstate extends State<GPAcalc> {
                 style: TextStyle(color: Colors.black),
               ),
               onPressed: () {
-                Navigator.of(context).pop();
+                Navigator.push(
+                  context,
+                  new MaterialPageRoute(
+                      builder: (context) => MyApp()  //the destination page to navigate too
+                  ),
+                );
               },
             )
           ],
