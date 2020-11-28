@@ -4,9 +4,8 @@ A Flutter application that allows users to keep track of their modules according
 The GPA and CGPA will automatically be calculated after users insert thier credit hours and grades.
 The data is being stored locally using SQLite.
 
-Thank you for supporting each other the community even if it's small.
-
-paypal.me/sharvinsingh
+Thank you for supporting each other in the community even if it's small.\
+[PayPal](paypal.me/sharvinsingh)
 
 ## Getting Started
 
