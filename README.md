@@ -5,7 +5,7 @@ The GPA and CGPA will automatically be calculated after users insert thier credi
 The data is being stored locally using SQLite.
 
 Thank you for supporting each other in the community even if it's small.\
-[PayPal](paypal.me/sharvinsingh)
+[PayPal](https://paypal.me/sharvinsingh?locale.x=en_US)
 
 ## Getting Started
 
