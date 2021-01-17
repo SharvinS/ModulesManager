@@ -41,10 +41,11 @@ class _CgpaCalculatorRoute extends State<CgpaCalculatorRoute> {
             appBar: AppBar(
               //create an app bar for the page
               backgroundColor:
-                  Colors.blue[800], //color of the app bar
+                  Colors.white70, //color of the app bar
               title: Text(
-                "MODULES MANAGER" //text displayed on the app bar
-              ),
+                "MODULES MANAGER", //text displayed on the app bar
+                style: TextStyle(color: Colors.black
+                ),),
               leading: new Container(),
               centerTitle: true,
             ),
@@ -178,7 +179,7 @@ class _CgpaCalculatorRoute extends State<CgpaCalculatorRoute> {
                                   //allows creation and  customization of a widget
                                   elevation:
                                       10.0, //elevation value of the widget
-                                  color: Colors.blue[800],//color of the widget
+                                  color: Colors.white70,//color of the widget
                                   child: MaterialButton(
                                     //create a button within the material
                                     minWidth: 80.0, //width of the button

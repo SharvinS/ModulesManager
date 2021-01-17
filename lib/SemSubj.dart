@@ -18,10 +18,12 @@ class GPAState extends State<GPA> {
     return new Scaffold(
         resizeToAvoidBottomPadding: false,
         appBar: new AppBar(
-            title: new Text("MODULES MANAGER"),
+            title: new Text("MODULES MANAGER",
+              style: TextStyle(color: Colors.black
+              ),),
             leading: new Container(),
             centerTitle: true,
-            backgroundColor: Colors.blue[800]),
+            backgroundColor: Colors.white70),
         body: new Material(
             child: new Container(
           color: Colors.black26,
@@ -100,7 +102,7 @@ class GPAState extends State<GPA> {
                           child: new Material(
                               elevation: 10.0,
                               borderRadius: new BorderRadius.circular(50.0),
-                              color: Colors.blue[800],
+                              color: Colors.white70,
                               child: MaterialButton(
                                   minWidth: 80.0,
                                   height: 20.0,
@@ -152,7 +154,7 @@ class GPAState extends State<GPA> {
                         child: new Material(
                           //allows creation and  customization of a widget
                           elevation: 10.0, //elevation value of the widget
-                          color: Colors.blue[800], //color of the widget
+                          color: Colors.white70, //color of the widget
                           child: MaterialButton(
                             //create a button within the material
                             minWidth: 80.0, //width of the button
@@ -196,7 +198,7 @@ class GPAState extends State<GPA> {
           actions: <Widget>[
             new RaisedButton(
               elevation: 5.0,
-              color: Colors.blue[800],
+              color: Colors.white70,
               child: new Text(
                 "Go Back",
                 style: TextStyle(color: Colors.black),

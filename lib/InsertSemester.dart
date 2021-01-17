@@ -138,10 +138,12 @@ class GPAcalcstate extends State<GPAcalc> {
     return new Scaffold(
       resizeToAvoidBottomPadding: false,
         appBar: new AppBar(
-          title: new Text("MODULES MANAGER"),
+          title: new Text("MODULES MANAGER",
+          style: TextStyle(color: Colors.black
+          ),),
           leading: new Container(),
           centerTitle: true,
-          backgroundColor: Colors.blue[800],
+          backgroundColor: Colors.white70,
         ),
         body: Material(
             child: new Container(
@@ -168,10 +170,9 @@ class GPAcalcstate extends State<GPAcalc> {
                   new Padding(padding: EdgeInsets.only(bottom: 30.0)),
 
                   new Material(
-                    borderRadius: BorderRadius.circular(50.0),
                     elevation: 10.0,
                     child: new MaterialButton(
-                      color: Colors.blue[800],
+                      color: Colors.white70,
                       height: 50.0,
                       minWidth: 80.0,
                       padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
@@ -240,7 +241,7 @@ class GPAcalcstate extends State<GPAcalc> {
                           padding: new EdgeInsets.all(10.0),    //distance between container and border
                           child: new Material(    //allows creation and  customization of a widget\
                             elevation: 10.0,    //elevation value of the widget
-                            color: Colors.blue[800],    //color of the widget
+                            color: Colors.white70,    //color of the widget
                             child: MaterialButton(    //create a button within the material
                               minWidth: 80.0,   //width of the button
                               height: 20.0,   //height of the button
@@ -298,7 +299,7 @@ class GPAcalcstate extends State<GPAcalc> {
           actions: <Widget>[
             new RaisedButton(
               elevation: 5.0,
-              color: Colors.blue[800],
+              color: Colors.white70,
               child: new Text(
                 "Go Back",
                 style: TextStyle(color: Colors.black),
@@ -330,7 +331,7 @@ class GPAcalcstate extends State<GPAcalc> {
           actions: <Widget>[
             new RaisedButton(
               elevation: 5.0,
-              color: Colors.blue[800],
+              color: Colors.white70,
               child: new Text(
                 "Go Back",
                 style: TextStyle(color: Colors.black),

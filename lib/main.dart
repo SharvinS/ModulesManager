@@ -19,8 +19,11 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Scaffold( //create an empty whole page which is the main layout
       appBar: AppBar(     //create an app bar for the homepage
-          backgroundColor: Colors.blue[800],    //color of the app bar
-          title: Text('MODULES MANAGER'),    //text displayed on the app bar
+          backgroundColor: Colors.white70,    //color of the app bar
+          title: Text('MODULES MANAGER', //text displayed on the app bar
+          style: new TextStyle(   //styling of the text
+              color: Colors.black,    //color of the text
+          ),),
         leading: new Container(),
         centerTitle: true,
       ),
@@ -51,7 +54,7 @@ class HomeScreen extends StatelessWidget {
                 child: new Material(    //allows creation and  customization of a widget
                     elevation: 10.0,    //elevation value of the widget
                     borderRadius: new BorderRadius.circular(25.0),    //curve edges of the widget
-                    color: Colors.blue[800],    //color of the widget
+                    color: Colors.white70,    //color of the widget
                     child: MaterialButton(    //create a button within the material
                         minWidth: 50.0,
                         height: 55.0,//width of the button
@@ -77,7 +80,7 @@ class HomeScreen extends StatelessWidget {
                 child: new Material(
                     elevation: 10.0,
                     borderRadius: new BorderRadius.circular(25.0),
-                    color: Colors.blue[800],
+                    color: Colors.white70,
                     child: MaterialButton(
                         minWidth: 50.0,
                         height: 55.0,
@@ -100,7 +103,7 @@ class HomeScreen extends StatelessWidget {
                 child: new Material(
                     elevation: 10.0,
                     borderRadius: new BorderRadius.circular(25.0),
-                    color: Colors.blue[800],
+                    color: Colors.white70,
                     child: MaterialButton(
                         minWidth: 117.0,
                         height: 55.0,
